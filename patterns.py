@@ -63,7 +63,7 @@ def pattern5(n):
     for i in range (0, n + 1, 1):
         for j in range (1, n + 1 - i, 1):
             print("*", end='')
-        print("\n")
+        print("")
 '''
 pattern 6
 12345
@@ -113,5 +113,64 @@ def pattern8(n):
     
         print("\n")
 
+'''
+pattern 9
+    *
+   ***
+  *****
+ *******
+*********
+*********
+ *******
+  *****
+   ***
+    *
+'''
+def pattern9(n):
+    pattern7(n)
+    pattern8(n)
 
-pattern8(5)
+'''
+pattern 10
+*
+**
+***
+****
+*****
+****
+***
+**
+*
+'''
+def pattern10(n):
+    #one way
+    #pattern2(n)
+    #pattern5(n-1)
+    # the other way
+    for i in range(1, 2 * n - 1 + 1, 1):
+        stars = i
+        if i > n :
+            stars = 2 * n - i
+        for j in range (0, stars, 1):
+            print("*", end='')
+        print("\n")
+'''
+pattern 11
+1
+0 1
+1 0 1
+0 1 0 1
+1 0 1 0 1
+'''
+def pattern11(n):
+    start = 1
+    for i in range(0, n , 1):
+        if (i % 2 == 0):
+            start = 1
+        else:
+            start = 0
+        for j in range(0, i + 1 , 1):
+            print( f"{start} ", end = '')
+            start = 1 - start 
+        print("\n")
+pattern11(5)
