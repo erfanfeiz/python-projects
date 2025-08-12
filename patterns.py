@@ -1,3 +1,4 @@
+import math
 ''' 
 pattern 1 
 ****
@@ -220,7 +221,74 @@ ABCDE
 '''
 def pattern14(n):
     for i in range(0, n, 1):
-        for j in range(0, i  + 1 , 1):
+        for j in range(0, i  + 1 , -1):
             print(chr(65 + j), end='')
         print("\n")
-pattern14(5)
+'''
+pattern 15
+ABCDE
+ABCD
+ABC
+AB
+A
+'''
+def pattern15(n):
+    for i in range(n+1):
+        for j in range (0, n - i, 1):
+            print(chr(65 + j), end='')
+        print("\n")    
+
+'''
+pattern 16
+A
+BB
+CCC
+DDDD
+EEEEE
+'''
+def pattern16(n):
+    for i in range(n):
+        for j in range(0, i + 1, 1):
+            print(chr(65 + i), end='')
+        print("\n")
+
+'''
+pattern 17
+   A   
+  ABA  
+ ABCBA
+ABCDCBA
+'''
+def pattern17(n):
+    for i in range(1, n + 1, 1):
+        space = 2 * (n - i)
+        lastChar = 64
+        breakpoint = math.floor((2 * i + 1) / 2)
+        for x in range (math.floor(space /  2)):
+            print(" ", end='')
+        for j in range(2 * i - 1):
+            if (j < breakpoint):
+                lastChar += 1
+                print(chr(lastChar), end='')
+            else : 
+                lastChar -= 1
+                print(chr(lastChar), end='')
+        for y in range(math.floor(space /  2)):
+            print(" ", end='')
+        print(" ")
+'''
+ pattern 18
+ E
+ D E
+ C D E
+ B C D E
+ A B C D E
+ '''
+def pattern18(n):
+    ch = 69
+    for i in range(n):
+        for j in range(ch - i, i+1, 1):
+            print(chr(ch), end='')
+        print("\n")
+
+pattern18(5)
