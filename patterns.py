@@ -285,10 +285,45 @@ def pattern17(n):
  A B C D E
  '''
 def pattern18(n):
-    ch = 69
+    ch = 64
     for i in range(n):
-        for j in range(ch - i, i+1, 1):
-            print(chr(ch), end='')
+        index = n - i
+        for j in range(i+1):
+            print(chr(ch + index), end='')
+            index += 1
+        index = n
         print("\n")
-
-pattern18(5)
+'''
+**********
+****  ****
+***    ***
+**      **
+*        *
+*        *
+**      **
+***    ***
+****  ****
+**********
+'''
+def pattern19(n):
+    for i in range(n):
+        spaces = 2 * i
+        stars  = (2 * n) - spaces
+        for j in range(int(stars / 2)):
+            print("*", end = '')
+        for s in range(spaces):
+            print(" ", end = '')
+        for j in range(int(stars / 2)):
+            print("*", end = '')
+        print("\n")
+    for i in range(n):
+        spaces = 2 * (n - i)
+        stars = (2 * n) - spaces
+        for j in range(int(stars / 2)):
+            print("*", end = '')
+        for s in range(spaces):
+            print(" ", end = '')
+        for j in range(int(stars / 2)):
+            print("*", end = '')
+        print("\n")
+pattern19(5)
