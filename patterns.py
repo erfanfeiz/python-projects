@@ -326,4 +326,79 @@ def pattern19(n):
         for j in range(int(stars / 2)):
             print("*", end = '')
         print("\n")
-pattern19(5)
+'''
+pattern 20
+*        *
+**      **
+***    ***
+****  ****
+**********
+****  ****
+***    ***
+**      **
+*        *
+'''
+def pattern20(n):
+    for i in range (n):
+        if (i <= n / 2):
+            stars =  2 if i == 0 else (i + 1) * 2
+            spaces = n - stars + 1
+        else:
+            stars -= 2
+            spaces = n - stars + 1
+        for j in range(math.floor(stars / 2)):
+            print("*", end='')
+        for s in range(spaces):
+            print(" ", end='')
+        for j in range(math.floor(stars / 2)):
+            print("*", end='')
+        print("\n")
+
+'''
+pattern 21 (subtle note)
+****
+*  *
+*  *
+****
+'''
+def pattern21(n):
+    '''my way'''
+    # for i in range (n):
+    #     if (i == 0 or i >= n - 1):
+    #         stars = n
+    #         spaces = 0
+    #     else:
+    #         stars = 2
+    #         spaces = n - 2
+    #     for j in range(int(stars / 2) if stars % 2 == 0 else math.floor(stars / 2) + 1):
+    #         print("*", end='')
+    #     for s in range(spaces):
+    #         print(" ", end='')
+    #     for j in range(int(stars / 2) if stars % 2 == 0 else math.floor(stars / 2)):
+    #         print("*", end='')
+    #     print("\n")
+    '''instructor's way'''
+    for i in range(n):
+        for j in range(n):
+            print("*", end='') if i == 0 or i == n - 1 or j == 0 or j == n - 1 else print(" ", end='')
+        print("\n")
+'''
+pattern 22
+4 4 4 4 4 4 4
+4 3 3 3 3 3 4
+4 3 2 2 2 3 4
+4 3 2 1 2 3 4
+4 3 2 2 2 3 4
+4 3 3 3 3 3 4
+4 4 4 4 4 4 4
+'''
+def pattern22(n):
+    for i in range(2 * n - 1):
+        for j in range(2 * n - 1):
+            top = i
+            left = j
+            right = 2 * n - 2 - j
+            bottom = 2 * n - 2 - i
+            print(n - min(top, left, right, bottom), end='')
+        print("\n")
+pattern22(4)
