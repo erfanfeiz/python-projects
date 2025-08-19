@@ -11,13 +11,25 @@ def getDigitsCount(n):
 
 def reverseNumber(n):
     reversed = 0
-    count = getDigitsCount(n)
     i = 0
-    while(i < count):
+    while(n > 0):
         lastDigit = n % 10
-        reversed = reversed * 10 + lastDigit    
+        if (lastDigit != 0):
+            reversed = reversed * 10 + lastDigit    
         n = int (n / 10)
         i += 1
     print(reversed)
 
-reverseNumber(7789)
+def isPalindrome(n):
+    count = int(math.log10(n) + 1)
+    while(count > 0):
+        lastDigit = n % 10
+        firstDigit = int(n / 10 ** (count - 1))
+        n = int(n % 10 ** (count - 1))
+        n = int(n / 10)
+        if (lastDigit != firstDigit):
+            print(False)
+            return
+        count -= 2
+    print(True)
+isPalindrome(10051)
